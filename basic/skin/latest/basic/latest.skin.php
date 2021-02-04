@@ -7,27 +7,29 @@ $list_count = (is_array($list) && $list) ? count($list) : 0;
 ?>
 
 <div class="notice01 clearfix">
-  <div class="left">
-    <h2 class="notice_title"><a href="<?php echo get_pretty_url($bo_table); ?>"><?php echo $bo_subject ?></a></h2>
-    <a href="<?php echo get_pretty_url($bo_table); ?>" class="lt_more"><span class="sound_only"><?php echo $bo_subject ?></span>더보기</a>
+    <div class="left">
+      <h2 class="notice_title"><a href="<?php echo get_pretty_url($bo_table); ?>"><?php echo $bo_subject ?></a></h2>
+      <a href="<?php echo get_pretty_url($bo_table); ?>" class="lt_more"><span class="sound_only"><?php echo $bo_subject ?></span>더보기</a>
     </div>
     <ul class="right">
     <?php for ($i=0; $i<$list_count; $i++) {  ?>
         <li class="notice_li">
 
-          <a href="<? echo $list[$i] ?>">
-          <h3><? echo $list[$i]['subject']; ?></h3>
-          <p><?php echo $list[$i]['name'] ?>
-          <?php echo $list[$i]['datetime2'] ?></p>
+            <a href="<? echo  $list[$i]['href']?>">
+              <h3><?echo $list[$i]['subject'];?></h3>
+              <p><?php echo $list[$i]['name'] ?>
+              <?php echo $list[$i]['datetime2'] ?></p>
+            </a>
 
-          </a>
         </li>
     <?php }  ?>
+
     <?php if ($list_count == 0) { //게시물이 없을 때  ?>
-    <li class="empty_li">게시물이 없습니다.</li>
+      <li class="empty_li">게시물이 없습니다.</li>
     <?php }  ?>
+
+
     </ul>
 
-    
 
 </div>
